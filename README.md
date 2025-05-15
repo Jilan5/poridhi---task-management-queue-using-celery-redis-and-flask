@@ -276,7 +276,7 @@ The Flower dashboard shows:
    - Arguments
    - Runtime
    - Result
-
+![flower](images/flower dashboard.png)
 To examine a specific task using its UUID from the Flower interface:
 
 ```python
