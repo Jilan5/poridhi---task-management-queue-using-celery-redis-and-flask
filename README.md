@@ -15,6 +15,7 @@
 ## Introduction
 
 Task management is a crucial aspect of modern web applications that need to handle resource-intensive operations without blocking the main application flow. Asynchronous task queues solve this problem by offloading time-consuming tasks to worker processes that run in the background.
+
 ![celery workflow](https://github.com/Jilan5/poridhi---task-management-queue-using-celery-redis-and-flask/blob/main/images/celery%20workflow.drawio.svg)
 ### What is a Task Queue?
 
