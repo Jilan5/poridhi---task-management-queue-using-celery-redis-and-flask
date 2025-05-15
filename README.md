@@ -276,7 +276,7 @@ The Flower dashboard shows:
    - Arguments
    - Runtime
    - Result
-
+![flower](https://github.com/Jilan5/poridhi---task-management-queue-using-celery-redis-and-flask/blob/main/images/flower%20dashboard.png?raw=true)
 To examine a specific task using its UUID from the Flower interface:
 
 ```python
