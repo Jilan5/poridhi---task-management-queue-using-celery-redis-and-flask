@@ -78,7 +78,7 @@ In this tutorial, we'll set up a Flask application with Celery using Redis as th
 - Basic understanding of Flask
 - Linux/Unix environment or WSL on Windows
 
-## Setting Up the Environment
+##Step 1: Setting Up the Environment
 
 First, let's update our system and install the required packages:
 
@@ -126,7 +126,7 @@ Install the dependencies:
 pip install -r requirements.txt
 ```
 
-## Creating a Simple Flask-Celery Application
+##Step 2: Creating a Simple Flask-Celery Application
 
 Let's create a basic Flask application with Celery integration. Create a new file called `app.py`:
 
@@ -164,7 +164,7 @@ Here's what's happening in this file:
 3. We define a simple route for our Flask application.
 4. We create a Celery task called `divide` that simulates a long-running task with a 5-second sleep.
 
-## Running Celery Worker
+##Step 3: Running Celery Worker
 
 Now, let's start our Celery worker to process tasks. Open a new terminal and run:
 
@@ -176,7 +176,7 @@ celery -A app.celery worker --loglevel=info
 
 You should see output indicating that the Celery worker has started successfully and is ready to process tasks.
 
-## Submitting and Monitoring Tasks
+##Step 4: Submitting and Monitoring Tasks
 
 Let's interact with our application using the Flask shell. Open another terminal and run:
 
@@ -223,7 +223,7 @@ SUCCESS 0.5
 
 Now the task has completed successfully, and the result (0.5) is available.
 
-## Handling Task Failures
+##Step 5: Handling Task Failures
 
 Let's see what happens when a task fails, for example, when trying to divide by zero:
 
@@ -238,7 +238,7 @@ ZeroDivisionError('division by zero')
 
 When a task fails, Celery captures the exception and stores it in the result backend. You can retrieve the exception from the `result` attribute of the `AsyncResult` object.
 
-## Monitoring with Flower
+##Step 6: Monitoring with Flower
 
 Flower is a web-based tool for monitoring Celery tasks and workers. Let's start Flower in a new terminal:
 
@@ -248,7 +248,7 @@ source env/bin/activate
 celery -A app.celery flower --port=5555
 ```
 
-### Accessing Flower in Poridhi Virtual Lab
+###Step 7: Accessing Flower in Poridhi Virtual Lab
 
 First, find your network interface's IP address:
 
@@ -264,7 +264,7 @@ In the Poridhi Virtual Lab, create a load balancer with your IP address and port
 
 You can now access the Flower dashboard through the load balancer URL. If you're running this locally, you can access it at http://localhost:5555.
 
-### Using Flower to Monitor Tasks
+###Step 8: Using Flower to Monitor Tasks
 
 The Flower dashboard shows:
 
@@ -287,15 +287,6 @@ To examine a specific task using its UUID from the Flower interface:
 >>> task.result
 ```
 
-## Deployment in Poridhi Virtual Lab
-
-For deploying this setup in the Poridhi Virtual Lab:
-
-1. Follow all the setup instructions above on your Poridhi instance
-2. Ensure Redis is running in a Docker container
-3. Start the Celery worker as a background process
-4. Configure the load balancer to access the Flower dashboard
-5. Run your Flask application in production mode using Gunicorn or uWSGI
 
 ## Conclusion
 
